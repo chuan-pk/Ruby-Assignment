@@ -24,7 +24,6 @@ class BinaryTree
   end
 
   def swap
-    # swap to order child node
     if (@this_node.left).to_f > (@this_node.right).to_f
       @this_node.left, @this_node.right = @this_node.right, @this_node.left
     end
@@ -39,8 +38,8 @@ class BinaryTree
   end
 
   def each
-    [@this_node.val, @this_node.left, @this_node.right].each do |x|
-      yield x
+    node_detail.each do |key, val|
+      yield key, val
     end
   end
 
@@ -52,7 +51,6 @@ end
   2       21    -2    67
 =end
 
-
 b = BinaryTree.new(10)
 c = BinaryTree.new(12)
 d = BinaryTree.new(42)
@@ -63,6 +61,6 @@ puts c.node_detail
 d << -26 ; d << 436
 puts d.node_detail
 
-b.each do |val|
-  puts 2*val
+b.each do |key, val|
+  puts"#{key} 2*val=#{2*val}"
 end
